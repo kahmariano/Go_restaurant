@@ -1,40 +1,40 @@
-import { Component } from 'react';
-import { FiEdit3, FiTrash } from 'react-icons/fi';
+import { Component } from 'react'
+import { FiEdit3, FiTrash } from 'react-icons/fi'
 
-import { Container } from './styles';
-import api from '../../services/api';
+import { Container } from './styles'
+import api from '../../services/api'
 
 class Food extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
-    const { available } = this.props.food;
+    const { available } = this.props.food
     this.state = {
       isAvailable: available
-    };
+    }
   }
 
   toggleAvailable = async () => {
-    const { food } = this.props;
-    const { isAvailable } = this.state;
+    const { food } = this.props
+    const { isAvailable } = this.state
 
     await api.put(`/foods/${food.id}`, {
       ...food,
-      available: !isAvailable,
-    });
+      available: !isAvailable
+    })
 
-    this.setState({ isAvailable: !isAvailable });
+    this.setState({ isAvailable: !isAvailable })
   }
 
   setEditingFood = () => {
-    const { food, handleEditFood } = this.props;
+    const { food, handleEditFood } = this.props
 
-    handleEditFood(food);
+    handleEditFood(food)
   }
 
   render() {
-    const { isAvailable } = this.state;
-    const { food, handleDelete } = this.props;
+    const { isAvailable } = this.state
+    const { food, handleDelete } = this.props
 
     return (
       <Container available={isAvailable}>
@@ -85,8 +85,8 @@ class Food extends Component {
           </div>
         </section>
       </Container>
-    );
+    )
   }
-};
+}
 
-export default Food;
+export default Food

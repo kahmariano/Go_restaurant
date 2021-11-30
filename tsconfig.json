@@ -16,6 +16,8 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "Foods"],
-  "exclude": []
+  //"include": ["src", "Foods"],
+  //"exclude": []
+  "extends": "../typescript/tsconfig.base.json",
+  "include": [".", "../typescript/types"]
 }
